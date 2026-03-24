@@ -4,16 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import com.singhastudios.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,11 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    Hello()
+                    ProfileScreen()
                 }
             }
         }
@@ -35,35 +34,40 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-        fontSize = 30.sp
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+fun ProfileScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ProfileTitle()
+        ProfileImage()
+        ProfileDescription()
     }
 }
 
 @Composable
-fun Hello() {
+fun ProfileTitle() {
     Text(
-        text = "Hello Students",
-        modifier = Modifier.background(Color.Gray),
-        color = Color.White
+        text = "John Doe",
+        modifier = Modifier.padding(all = 16.dp)
     )
 }
 
 @Composable
-@Preview(showBackground = true)
-fun HelloPreview() {
+fun ProfileImage() {
+    Icon(
+        imageVector = Icons.Default.AccountCircle,
+        contentDescription = "Profile Image",
+        modifier = Modifier
+            .padding(all = 16.dp)
+            .size(size = 100.dp)
+    )
+}
+
+@Composable
+fun ProfileDescription() {
     Text(
-        text = "Hello Students",
+        text = "John doe is a professional mobile app developer with",
+        modifier = Modifier.padding(all = 16.dp)
     )
 }
