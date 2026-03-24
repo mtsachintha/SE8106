@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ProfileScreen()
+
                 }
             }
         }
@@ -71,3 +72,38 @@ fun ProfileDescription() {
         modifier = Modifier.padding(all = 16.dp)
     )
 }
+
+/*
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier,
+        fontSize = 30.sp
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    MyApplicationTheme {
+        Greeting("Android")
+    }
+}
+
+@Composable
+fun Hello() {
+    Text(
+        text = "Hello Students",
+        modifier = Modifier.background(Color.Gray),
+        color = Color.White
+    )
+}
+
+@Composable
+@Preview(showBackground = true)
+fun HelloPreview() {
+    Text(
+        text = "Hello Students",
+    )
+}*/
